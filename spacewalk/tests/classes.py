@@ -75,6 +75,17 @@ class ExpLeaf2(DevExpBranch):
     DESCRIPTION = "crazy job that probably won't work"
 
 
+class EmptyBranch(ProdBranch):
+    NAME = "empty branch"
+    BRANCH_NAME = "empty-branch"
+    DESCRIPTION = "branch with no leaves in it"
+
+
+BRANCH_CLASSES = [Root, ProdBranch, DevBranch, DevExpBranch, EmptyBranch]
+LEAF_CLASSES = [
+    ProdLeaf1, ProdLeaf2, ProdLeaf3, DevLeaf1, DevLeaf2, ExpLeaf1, ExpLeaf2
+]
+
 EXPECTED_ROOT_BRANCH_COUNT = 2
 EXPECTED_ROOT_LEAF_COUNT = 0
 
@@ -89,17 +100,18 @@ EXPECTED_MAPPINGS = {
     "/root/dev/might-be-useful": DevLeaf1,
     "/root/dev/needs-testing": DevLeaf2,
     "/root/dev/exp/new-thing": ExpLeaf1,
-    "/root/dev/exp/crazy": ExpLeaf2
+    "/root/dev/exp/crazy": ExpLeaf2,
+    "/root/prod/empty-branch": EmptyBranch
 }
 
 EXPECTED_BRANCH_PATHS = [
     path for path, cls in EXPECTED_MAPPINGS.items()
-    if len(cls.__subclasses__()) > 0
+    if cls in BRANCH_CLASSES
 ]
 
 EXPECTED_LEAF_PATHS = [
     path for path, cls in EXPECTED_MAPPINGS.items()
-    if len(cls.__subclasses__()) == 0
+    if cls in LEAF_CLASSES
 ]
 
 ROOT_PATH = "/root"

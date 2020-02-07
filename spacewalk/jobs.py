@@ -4,13 +4,15 @@ import zerog
 import logging
 log = logging.getLogger(__name__)
 
-
-def job_type(bench, endpoint):
-    return "lab_%s_%s" % (bench, endpoint)
+NOT_OVERRIDDEN = "spacewalk-base"
 
 
-def schema_name(bench, endpoint):
-    return "%s%sSchema" % (bench.capitalize(), endpoint.capitalize())
+def job_type(branch, leaf):
+    return "%s_%s" % (branch, leaf)
+
+
+def schema_name(branch, leaf):
+    return "%s%sSchema" % (branch.capitalize(), leaf.capitalize())
 
 
 class BaseJobSchema(zerog.BaseJobSchema):
@@ -21,17 +23,17 @@ class BaseJob(zerog.BaseJob):
     """
     must override:
         NAME
-        BRANCH_NAME or LEAF_NAME
+        BRANCH_NAME (if branch) or LEAF_NAME (if leaf)
         DESCRIPTION
 
     may override:
         BASE_SCHEMA
         Params
     """
-    NAME = "short name"
-    BRANCH_NAME = "name-of-branch-for-url"
-    LEAF_NAME = "name-of-leaf-for-url"
-    DESCRIPTION = "long description"
+    NAME = NOT_OVERRIDDEN
+    BRANCH_NAME = NOT_OVERRIDDEN
+    LEAF_NAME = NOT_OVERRIDDEN
+    DESCRIPTION = NOT_OVERRIDDEN
 
     BASE_SCHEMA = BaseJobSchema
 

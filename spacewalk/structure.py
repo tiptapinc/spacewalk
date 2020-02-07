@@ -6,6 +6,8 @@ Copyright (c) 2020 MotiveMetrics. All rights reserved.
 """
 from marshmallow_jsonschema import JSONSchema
 
+from spacewalk.jobs import NOT_OVERRIDDEN
+
 import logging
 log = logging.getLogger(__name__)
 
@@ -59,7 +61,7 @@ def make_path_map(rootbranch, pathmap):
 
 
 def is_branch(cls):
-    return len(cls.__subclasses__()) > 0
+    return len(cls.__subclasses__()) > 0 or cls.LEAF_NAME == NOT_OVERRIDDEN
 
 
 def targets_by_type(pathmap, targetType):
