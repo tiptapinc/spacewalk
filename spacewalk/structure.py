@@ -29,7 +29,7 @@ class Leaf():
         self.postschema = JSONSchema().dump(cls.Params())
 
 
-def make_tree(rootcls, path):
+def auto_tree(rootcls, path):
     branches = []
     leaves = []
 
@@ -40,7 +40,7 @@ def make_tree(rootcls, path):
 
     for childcls in rootcls.__subclasses__():
         if is_branch(childcls):
-            branches.append(make_tree(childcls, path))
+            branches.append(auto_tree(childcls, path))
         else:
             leaves.append(Leaf(childcls, path))
 

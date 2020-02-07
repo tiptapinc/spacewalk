@@ -26,8 +26,8 @@ def test_make_leaf():
     assert l.path == "/tests/%s" % classes.ProdLeaf1.LEAF_NAME
 
 
-def test_make_tree():
-    tree = structure.make_tree(classes.Root, "/tests")
+def test_auto_tree():
+    tree = structure.auto_tree(classes.Root, "/tests")
 
     assert isinstance(tree, structure.Branch)
     assert tree.cls == classes.Root
@@ -37,7 +37,7 @@ def test_make_tree():
 
 
 def test_initialize_structure():
-    tree = structure.make_tree(classes.Root, "/tests")
+    tree = structure.auto_tree(classes.Root, "/tests")
     structure.Structure(tree)
 
     assert True
