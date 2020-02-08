@@ -1,11 +1,11 @@
 import pdb
 import pytest
 
-from zerog.tests.mock_datastore import MockDatastore
-from zerog.tests.mock_queue import MockQueue
+from zerog.datastores.mock_datastore import MockDatastore
+from zerog.queues.mock_queue import MockQueue
 
-from ..server import Server
-from . import classes
+from spacewalk.server import Server
+from tests import classes
 
 
 def test_server_init(make_structure):

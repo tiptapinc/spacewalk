@@ -129,4 +129,11 @@ def make_handlers(structure):
         handlers.append(("%s/%s" % (path, POST_SCHEMA), PostSchemaHandler))
         handlers.append(("%s/%s" % (path, RUN_JOB), RunJobHandler))
 
+    handlers.append(
+        (
+            "%s/progress/%s" % (structure.get_root_path(), UUID_PATT),
+            zerog.ProgressHandler
+        )
+    )
+
     return handlers

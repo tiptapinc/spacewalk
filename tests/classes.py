@@ -1,6 +1,7 @@
 from marshmallow import Schema, fields
+import time
 
-from ..jobs import BaseJob
+from spacewalk.jobs import BaseJob
 
 
 class Root(BaseJob):
@@ -52,9 +53,17 @@ class ProdLeaf3(ProdBranch):
 
 
 class DevLeaf1(DevBranch):
-    NAME = "might be useful"
-    LEAF_NAME = "might-be-useful"
-    DESCRIPTION = "job that might be useful"
+    NAME = "fake run"
+    LEAF_NAME = "fake-run"
+    DESCRIPTION = "job that pretends to run & updates completeness"
+
+    # worker doesn't seem to be running in the test environment -- need
+    # to figure that out
+    def run(self):
+        time.sleep(1)
+        self.add_to_completeness(.5)
+        time.sleep(1)
+        return 200
 
 
 class DevLeaf2(DevBranch):
@@ -97,7 +106,7 @@ EXPECTED_MAPPINGS = {
     "/root/prod/useful": ProdLeaf1,
     "/root/prod/also-useful": ProdLeaf2,
     "/root/prod/super-useful": ProdLeaf3,
-    "/root/dev/might-be-useful": DevLeaf1,
+    "/root/dev/fake-run": DevLeaf1,
     "/root/dev/needs-testing": DevLeaf2,
     "/root/dev/exp/new-thing": ExpLeaf1,
     "/root/dev/exp/crazy": ExpLeaf2,
@@ -124,6 +133,9 @@ EXP_LEAF_PATH = "/root/dev/exp/crazy"
 
 PARAMS_LEAF_PATH = "/root/prod/useful"
 PARAMS_PROPERTY = "thingum"
+
+JOB_THAT_RUNS = DevLeaf1
+JOB_THAT_RUNS_PATH = "/root/dev/fake-run"
 
 EXPECTED_ROOT_SUB_BRANCH_CLASSES = [ProdBranch, DevBranch]
 EXPECTED_PROD_LEAF_CLASSES = [ProdLeaf1, ProdLeaf2, ProdLeaf3]

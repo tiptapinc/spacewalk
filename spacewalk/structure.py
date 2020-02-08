@@ -76,6 +76,9 @@ class Structure(object):
         self.tree = tree
         self.pathmap = make_path_map(tree, {})
 
+    def get_root_path(self):
+        return self.tree.path
+
     def get_branch_paths(self):
         return targets_by_type(self.pathmap, Branch)
 

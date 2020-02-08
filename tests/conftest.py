@@ -1,7 +1,7 @@
 import pdb
 import pytest
 
-from .. import structure
+from spacewalk import structure
 
 
 @pytest.fixture

@@ -2,14 +2,14 @@ import json
 import pdb
 import pytest
 
-import zerog.registry
-from zerog.tests.mock_datastore import MockDatastore
-from zerog.tests.mock_queue import MockQueue
+import zerog
+from zerog.datastores.mock_datastore import MockDatastore
+from zerog.queues.mock_queue import MockQueue
 
-from .. import handlers
-from .. import server
+from spacewalk import handlers
+from spacewalk import server
 
-from . import classes
+from tests import classes
 
 
 @pytest.fixture
@@ -62,7 +62,7 @@ def app(make_structure):
         MockDatastore(),
         MockQueue(),
         MockQueue(),
-        zerog.registry.find_subclasses(classes.Root),
+        zerog.find_subclasses(classes.Root),
         testHandlers
     )
 
@@ -193,3 +193,26 @@ def test_run_job_not_leaf(app, http_client, base_url):
     )
 
     assert response.code == 400
+
+
+@pytest.mark.gen_test
+def test_progress_handler(app, http_client, base_url):
+    response = yield http_client.fetch(
+        "%s%s/%s" % (base_url, classes.JOB_THAT_RUNS_PATH, handlers.RUN_JOB),
+        method="POST",
+        body=json.dumps({})
+    )
+
+    assert response.code == 201
+    body = json.loads(response.body)
+    assert "uuid" in body
+    uuid = body['uuid']
+
+    response = yield http_client.fetch(
+        "%s%s/%s/%s" % (base_url, classes.ROOT_PATH, "progress", uuid)
+    )
+
+    assert response.code == 200
+    progress = json.loads(response.body)
+    for key in ["completeness", "result", "events", "errors", "warnings"]:
+        assert key in progress

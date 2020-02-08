@@ -1,8 +1,8 @@
 import pdb
 import pytest
 
-from .. import structure
-from . import classes
+from spacewalk import structure
+from tests import classes
 
 
 def test_make_branch():
@@ -153,3 +153,11 @@ def test_non_empty_base_path(make_structure):
     names = [info['name'] for info in infos]
     for cls in classes.EXPECTED_PROD_LEAF_CLASSES:
         assert cls.NAME in names
+
+
+def test_get_root_path(make_structure):
+    basepath = "/test/base/path"
+    struct = make_structure(classes.Root, basepath)
+
+    rootpath = "%s%s" % (basepath, classes.ROOT_PATH)
+    assert struct.get_root_path() == rootpath
