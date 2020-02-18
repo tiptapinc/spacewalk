@@ -129,6 +129,7 @@ class Structure(object):
             info.append(
                 dict(
                     path=leaf.path,
+                    jobType=leaf.cls.JOB_TYPE,
                     name=leaf.cls.NAME,
                     description=leaf.cls.DESCRIPTION
                 )
