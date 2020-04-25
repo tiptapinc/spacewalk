@@ -65,7 +65,6 @@ class BaseJob(zerog.BaseJob):
         super().__init_subclass__(**kwargs)
 
     def __init__(self, *args, **kwargs):
-        log.info("calling lab job with args:%s, kwargs:%s" % (args, kwargs))
         super(BaseJob, self).__init__(*args, **kwargs)
 
         # add Params to job
