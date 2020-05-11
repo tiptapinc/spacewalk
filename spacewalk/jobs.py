@@ -69,4 +69,5 @@ class BaseJob(zerog.BaseJob):
 
         # add Params to job
         for key in self.Params().fields.keys():
-            setattr(self, key, kwargs.get(key))
+            if key in kwargs:
+                setattr(self, key, kwargs[key])

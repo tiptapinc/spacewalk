@@ -37,7 +37,7 @@ class ProdLeaf1(ProdBranch):
         thingum = fields.String()
 
     def run(self):
-        return 200
+        return 200, None
 
 
 class ProdLeaf2(ProdBranch):
@@ -63,7 +63,7 @@ class DevLeaf1(DevBranch):
         time.sleep(1)
         self.add_to_completeness(.5)
         time.sleep(1)
-        return 200
+        return 200, None
 
 
 class DevLeaf2(DevBranch):
