@@ -5,7 +5,7 @@ from zerog.datastores.mock_datastore import MockDatastore
 from zerog.queues.mock_queue import MockQueue
 
 from spacewalk.server import Server
-from tests import classes
+import classes
 
 
 def test_server_init(make_structure):

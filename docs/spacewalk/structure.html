@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.1" />
+<title>spacewalk.structure API documentation</title>
+<meta name="description" content="Copyright (c) 2020 MotiveMetrics. All rights reserved." />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>spacewalk.structure</code></h1>
+</header>
+<section id="section-intro">
+<p>Copyright (c) 2020 MotiveMetrics. All rights reserved.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# encoding: utf-8
+&#34;&#34;&#34;
+Copyright (c) 2020 MotiveMetrics. All rights reserved.
+
+&#34;&#34;&#34;
+from marshmallow_jsonschema import JSONSchema
+
+from spacewalk.jobs import NOT_OVERRIDDEN
+
+import logging
+log = logging.getLogger(__name__)
+
+
+class NotLeafError(Exception):
+    pass
+
+
+class Branch():
+    def __init__(self, cls, branches, leaves, path):
+        self.cls = cls
+        self.path = path
+        self.branches = {b.cls.BRANCH_NAME: b for b in branches}
+        self.leaves = {l.cls.LEAF_NAME: l for l in leaves}
+
+
+class Leaf():
+    def __init__(self, cls, path):
+        self.cls = cls
+        self.path = path + &#34;/%s&#34; % cls.LEAF_NAME
+        self.postschema = JSONSchema().dump(cls.Params())
+
+
+def auto_tree(rootcls, path):
+    branches = []
+    leaves = []
+
+    if is_branch(rootcls):
+        path += &#34;/%s&#34; % rootcls.BRANCH_NAME
+    else:
+        path += &#34;/%s&#34; % rootcls.LEAF_NAME
+
+    for childcls in rootcls.__subclasses__():
+        if is_branch(childcls):
+            branches.append(auto_tree(childcls, path))
+        else:
+            leaves.append(Leaf(childcls, path))
+
+    return Branch(rootcls, branches, leaves, path)
+
+
+def make_path_map(rootbranch, pathmap):
+    pathmap[rootbranch.path] = rootbranch
+    for _, leaf in rootbranch.leaves.items():
+        pathmap[leaf.path] = leaf
+
+    for _, branch in rootbranch.branches.items():
+        pathmap = make_path_map(branch, pathmap)
+
+    return pathmap
+
+
+def is_branch(cls):
+    return len(cls.__subclasses__()) &gt; 0 or cls.LEAF_NAME == NOT_OVERRIDDEN
+
+
+def targets_by_type(pathmap, targetType):
+    return [
+        path for path, target in pathmap.items()
+        if isinstance(target, targetType)
+    ]
+
+
+class Structure(object):
+    def __init__(self, tree):
+        self.tree = tree
+        self.pathmap = make_path_map(tree, {})
+
+    def get_root_path(self):
+        return self.tree.path
+
+    def get_branch_paths(self):
+        return targets_by_type(self.pathmap, Branch)
+
+    def get_leaf_paths(self):
+        return targets_by_type(self.pathmap, Leaf)
+
+    def get_sub_branches(self, path):
+        &#34;&#34;&#34;
+        Return all the sub branches associated with a path.
+
+        Args:
+            path: path portion of a uri
+
+        Returns:
+            list of dictionaries for each sub branch.
+            Dictionary keys are &#39;path&#39;, &#39;name&#39;, &#39;description&#39;
+
+        Raises KeyError if there is no branch for the path
+        &#34;&#34;&#34;
+        branch = self.pathmap[path]
+        info = []
+        for sub in branch.branches.values():
+            info.append(
+                dict(
+                    path=sub.path,
+                    name=sub.cls.NAME,
+                    description=sub.cls.DESCRIPTION
+                )
+            )
+        return info
+
+    def get_leaves(self, path):
+        &#34;&#34;&#34;
+        Return all the leaves associated with a path.
+
+        Args:
+            path: path portion of a uri
+
+        Returns:
+            list of dictionaries for each leaf.
+            Dictionary keys are &#39;path&#39;, &#39;name&#39;, &#39;description&#39;
+
+        Raises KeyError if there is no branch for the path
+        &#34;&#34;&#34;
+        branch = self.pathmap[path]
+        info = []
+        for leaf in branch.leaves.values():
+            info.append(
+                dict(
+                    path=leaf.path,
+                    jobType=leaf.cls.JOB_TYPE,
+                    name=leaf.cls.NAME,
+                    description=leaf.cls.DESCRIPTION
+                )
+            )
+        return info
+
+    def get_post_schema(self, path):
+        leaf = self.pathmap[path]
+
+        if not isinstance(leaf, Leaf):
+            raise NotLeafError
+
+        return leaf.postschema
+
+    def get_job_type(self, path):
+        &#34;&#34;&#34;
+        Returns the job type for a leaf.
+        &#34;&#34;&#34;
+        leaf = self.pathmap[path]
+
+        if not isinstance(leaf, Leaf):
+            raise NotLeafError
+
+        return leaf.cls.JOB_TYPE</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="spacewalk.structure.auto_tree"><code class="name flex">
+<span>def <span class="ident">auto_tree</span></span>(<span>rootcls, path)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def auto_tree(rootcls, path):
+    branches = []
+    leaves = []
+
+    if is_branch(rootcls):
+        path += &#34;/%s&#34; % rootcls.BRANCH_NAME
+    else:
+        path += &#34;/%s&#34; % rootcls.LEAF_NAME
+
+    for childcls in rootcls.__subclasses__():
+        if is_branch(childcls):
+            branches.append(auto_tree(childcls, path))
+        else:
+            leaves.append(Leaf(childcls, path))
+
+    return Branch(rootcls, branches, leaves, path)</code></pre>
+</details>
+</dd>
+<dt id="spacewalk.structure.is_branch"><code class="name flex">
+<span>def <span class="ident">is_branch</span></span>(<span>cls)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_branch(cls):
+    return len(cls.__subclasses__()) &gt; 0 or cls.LEAF_NAME == NOT_OVERRIDDEN</code></pre>
+</details>
+</dd>
+<dt id="spacewalk.structure.make_path_map"><code class="name flex">
+<span>def <span class="ident">make_path_map</span></span>(<span>rootbranch, pathmap)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make_path_map(rootbranch, pathmap):
+    pathmap[rootbranch.path] = rootbranch
+    for _, leaf in rootbranch.leaves.items():
+        pathmap[leaf.path] = leaf
+
+    for _, branch in rootbranch.branches.items():
+        pathmap = make_path_map(branch, pathmap)
+
+    return pathmap</code></pre>
+</details>
+</dd>
+<dt id="spacewalk.structure.targets_by_type"><code class="name flex">
+<span>def <span class="ident">targets_by_type</span></span>(<span>pathmap, targetType)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def targets_by_type(pathmap, targetType):
+    return [
+        path for path, target in pathmap.items()
+        if isinstance(target, targetType)
+    ]</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="spacewalk.structure.Branch"><code class="flex name class">
+<span>class <span class="ident">Branch</span></span>
+<span>(</span><span>cls, branches, leaves, path)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Branch():
+    def __init__(self, cls, branches, leaves, path):
+        self.cls = cls
+        self.path = path
+        self.branches = {b.cls.BRANCH_NAME: b for b in branches}
+        self.leaves = {l.cls.LEAF_NAME: l for l in leaves}</code></pre>
+</details>
+</dd>
+<dt id="spacewalk.structure.Leaf"><code class="flex name class">
+<span>class <span class="ident">Leaf</span></span>
+<span>(</span><span>cls, path)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Leaf():
+    def __init__(self, cls, path):
+        self.cls = cls
+        self.path = path + &#34;/%s&#34; % cls.LEAF_NAME
+        self.postschema = JSONSchema().dump(cls.Params())</code></pre>
+</details>
+</dd>
+<dt id="spacewalk.structure.NotLeafError"><code class="flex name class">
+<span>class <span class="ident">NotLeafError</span></span>
+<span>(</span><span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NotLeafError(Exception):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="spacewalk.structure.Structure"><code class="flex name class">
+<span>class <span class="ident">Structure</span></span>
+<span>(</span><span>tree)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Structure(object):
+    def __init__(self, tree):
+        self.tree = tree
+        self.pathmap = make_path_map(tree, {})
+
+    def get_root_path(self):
+        return self.tree.path
+
+    def get_branch_paths(self):
+        return targets_by_type(self.pathmap, Branch)
+
+    def get_leaf_paths(self):
+        return targets_by_type(self.pathmap, Leaf)
+
+    def get_sub_branches(self, path):
+        &#34;&#34;&#34;
+        Return all the sub branches associated with a path.
+
+        Args:
+            path: path portion of a uri
+
+        Returns:
+            list of dictionaries for each sub branch.
+            Dictionary keys are &#39;path&#39;, &#39;name&#39;, &#39;description&#39;
+
+        Raises KeyError if there is no branch for the path
+        &#34;&#34;&#34;
+        branch = self.pathmap[path]
+        info = []
+        for sub in branch.branches.values():
+            info.append(
+                dict(
+                    path=sub.path,
+                    name=sub.cls.NAME,
+                    description=sub.cls.DESCRIPTION
+                )
+            )
+        return info
+
+    def get_leaves(self, path):
+        &#34;&#34;&#34;
+        Return all the leaves associated with a path.
+
+        Args:
+            path: path portion of a uri
+
+        Returns:
+            list of dictionaries for each leaf.
+            Dictionary keys are &#39;path&#39;, &#39;name&#39;, &#39;description&#39;
+
+        Raises KeyError if there is no branch for the path
+        &#34;&#34;&#34;
+        branch = self.pathmap[path]
+        info = []
+        for leaf in branch.leaves.values():
+            info.append(
+                dict(
+                    path=leaf.path,
+                    jobType=leaf.cls.JOB_TYPE,
+                    name=leaf.cls.NAME,
+                    description=leaf.cls.DESCRIPTION
+                )
+            )
+        return info
+
+    def get_post_schema(self, path):
+        leaf = self.pathmap[path]
+
+        if not isinstance(leaf, Leaf):
+            raise NotLeafError
+
+        return leaf.postschema
+
+    def get_job_type(self, path):
+        &#34;&#34;&#34;
+        Returns the job type for a leaf.
+        &#34;&#34;&#34;
+        leaf = self.pathmap[path]
+
+        if not isinstance(leaf, Leaf):
+            raise NotLeafError
+
+        return leaf.cls.JOB_TYPE</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="spacewalk.structure.Structure.get_branch_paths"><code class="name flex">
+<span>def <span class="ident">get_branch_paths</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_branch_paths(self):
+    return targets_by_type(self.pathmap, Branch)</code></pre>
+</details>
+</dd>
+<dt id="spacewalk.structure.Structure.get_job_type"><code class="name flex">
+<span>def <span class="ident">get_job_type</span></span>(<span>self, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the job type for a leaf.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_job_type(self, path):
+    &#34;&#34;&#34;
+    Returns the job type for a leaf.
+    &#34;&#34;&#34;
+    leaf = self.pathmap[path]
+
+    if not isinstance(leaf, Leaf):
+        raise NotLeafError
+
+    return leaf.cls.JOB_TYPE</code></pre>
+</details>
+</dd>
+<dt id="spacewalk.structure.Structure.get_leaf_paths"><code class="name flex">
+<span>def <span class="ident">get_leaf_paths</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_leaf_paths(self):
+    return targets_by_type(self.pathmap, Leaf)</code></pre>
+</details>
+</dd>
+<dt id="spacewalk.structure.Structure.get_leaves"><code class="name flex">
+<span>def <span class="ident">get_leaves</span></span>(<span>self, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return all the leaves associated with a path.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong></dt>
+<dd>path portion of a uri</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt>list of dictionaries for each leaf.</dt>
+<dt><code>Dictionary keys are 'path', 'name', 'description'</code></dt>
+<dd>&nbsp;</dd>
+<dt><code>Raises KeyError if there is no branch for the path</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_leaves(self, path):
+    &#34;&#34;&#34;
+    Return all the leaves associated with a path.
+
+    Args:
+        path: path portion of a uri
+
+    Returns:
+        list of dictionaries for each leaf.
+        Dictionary keys are &#39;path&#39;, &#39;name&#39;, &#39;description&#39;
+
+    Raises KeyError if there is no branch for the path
+    &#34;&#34;&#34;
+    branch = self.pathmap[path]
+    info = []
+    for leaf in branch.leaves.values():
+        info.append(
+            dict(
+                path=leaf.path,
+                jobType=leaf.cls.JOB_TYPE,
+                name=leaf.cls.NAME,
+                description=leaf.cls.DESCRIPTION
+            )
+        )
+    return info</code></pre>
+</details>
+</dd>
+<dt id="spacewalk.structure.Structure.get_post_schema"><code class="name flex">
+<span>def <span class="ident">get_post_schema</span></span>(<span>self, path)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_post_schema(self, path):
+    leaf = self.pathmap[path]
+
+    if not isinstance(leaf, Leaf):
+        raise NotLeafError
+
+    return leaf.postschema</code></pre>
+</details>
+</dd>
+<dt id="spacewalk.structure.Structure.get_root_path"><code class="name flex">
+<span>def <span class="ident">get_root_path</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_root_path(self):
+    return self.tree.path</code></pre>
+</details>
+</dd>
+<dt id="spacewalk.structure.Structure.get_sub_branches"><code class="name flex">
+<span>def <span class="ident">get_sub_branches</span></span>(<span>self, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return all the sub branches associated with a path.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong></dt>
+<dd>path portion of a uri</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt>list of dictionaries for each sub branch.</dt>
+<dt><code>Dictionary keys are 'path', 'name', 'description'</code></dt>
+<dd>&nbsp;</dd>
+<dt><code>Raises KeyError if there is no branch for the path</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_sub_branches(self, path):
+    &#34;&#34;&#34;
+    Return all the sub branches associated with a path.
+
+    Args:
+        path: path portion of a uri
+
+    Returns:
+        list of dictionaries for each sub branch.
+        Dictionary keys are &#39;path&#39;, &#39;name&#39;, &#39;description&#39;
+
+    Raises KeyError if there is no branch for the path
+    &#34;&#34;&#34;
+    branch = self.pathmap[path]
+    info = []
+    for sub in branch.branches.values():
+        info.append(
+            dict(
+                path=sub.path,
+                name=sub.cls.NAME,
+                description=sub.cls.DESCRIPTION
+            )
+        )
+    return info</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="spacewalk" href="index.html">spacewalk</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="spacewalk.structure.auto_tree" href="#spacewalk.structure.auto_tree">auto_tree</a></code></li>
+<li><code><a title="spacewalk.structure.is_branch" href="#spacewalk.structure.is_branch">is_branch</a></code></li>
+<li><code><a title="spacewalk.structure.make_path_map" href="#spacewalk.structure.make_path_map">make_path_map</a></code></li>
+<li><code><a title="spacewalk.structure.targets_by_type" href="#spacewalk.structure.targets_by_type">targets_by_type</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="spacewalk.structure.Branch" href="#spacewalk.structure.Branch">Branch</a></code></h4>
+</li>
+<li>
+<h4><code><a title="spacewalk.structure.Leaf" href="#spacewalk.structure.Leaf">Leaf</a></code></h4>
+</li>
+<li>
+<h4><code><a title="spacewalk.structure.NotLeafError" href="#spacewalk.structure.NotLeafError">NotLeafError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="spacewalk.structure.Structure" href="#spacewalk.structure.Structure">Structure</a></code></h4>
+<ul class="two-column">
+<li><code><a title="spacewalk.structure.Structure.get_branch_paths" href="#spacewalk.structure.Structure.get_branch_paths">get_branch_paths</a></code></li>
+<li><code><a title="spacewalk.structure.Structure.get_job_type" href="#spacewalk.structure.Structure.get_job_type">get_job_type</a></code></li>
+<li><code><a title="spacewalk.structure.Structure.get_leaf_paths" href="#spacewalk.structure.Structure.get_leaf_paths">get_leaf_paths</a></code></li>
+<li><code><a title="spacewalk.structure.Structure.get_leaves" href="#spacewalk.structure.Structure.get_leaves">get_leaves</a></code></li>
+<li><code><a title="spacewalk.structure.Structure.get_post_schema" href="#spacewalk.structure.Structure.get_post_schema">get_post_schema</a></code></li>
+<li><code><a title="spacewalk.structure.Structure.get_root_path" href="#spacewalk.structure.Structure.get_root_path">get_root_path</a></code></li>
+<li><code><a title="spacewalk.structure.Structure.get_sub_branches" href="#spacewalk.structure.Structure.get_sub_branches">get_sub_branches</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

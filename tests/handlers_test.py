@@ -9,7 +9,7 @@ from zerog.queues.mock_queue import MockQueue
 from spacewalk import handlers
 from spacewalk import server
 
-from tests import classes
+import classes
 
 
 @pytest.fixture
