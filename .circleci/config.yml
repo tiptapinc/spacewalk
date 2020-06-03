@@ -15,8 +15,8 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          command: ./run_tests.sh
-          name: Test
+          command: python -m pytest tests --cov=spacewalk --cov-report term-missing --cov-config=.coveragerc
+          name: Run Unit Tests
 
 workflows:
   main:
