@@ -10,7 +10,7 @@ jobs:
       - checkout
       - python/load-cache
       - run:
-          command: pip install git+https://github.com/tiptapinc/ZeroG#egg=zerog
+          command: pip install git+https://github.com/tiptapinc/ZeroG
           name: Install Zerog package
       - python/install-deps
       - python/save-cache
