@@ -1,3 +1,6 @@
+## v0.0.4
+* add support for ZeroG /data handler
+
 ## v0.0.3
 * don't create missing Params 
 
