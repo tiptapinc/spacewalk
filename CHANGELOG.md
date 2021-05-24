@@ -1,3 +1,6 @@
+## v0.0.5
+* add /info endpoint
+
 ## v0.0.4
 * add support for ZeroG /data handler
 
