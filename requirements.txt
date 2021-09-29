@@ -1,4 +1,9 @@
+-e git+https://github.com/tiptapinc/zerog.git@0.0.35#egg=zerog
+
+# for testing ...
+gunicorn
 marshmallow-jsonschema
+mock
 pytest
 pytest-cov
 pytest-tornado

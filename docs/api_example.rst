@@ -1,32 +1,10 @@
-*********
-Spacewalk
-*********
-
-Introduction
-============
-
-Spacewalk is an add-on to the `ZeroG`_ job-processing system that auto-generates a discoverable, self-documenting REST API for a set of ZeroG job classes. Pass Spacewalk a modules directory and a base job class derived from ``spacewalk.BaseJob``, and Spacewalk will create a REST API with endpoints for all subclasses of the base job that it finds.
-
-.. _Zerog: https://github.com/tiptapinc/zerog
-
-Install Spacewalk
-=================
-
-.. code-block:: console
-
-    $ pip install -e git+https://github.com/tiptapinc/spacewalk.git@0.0.5#egg=spacewalk
-
-Documentation
-=============
-
-- ZeroG: https://zerog.readthedocs.io/en/latest/
-- Spacewalk: https://spacewalk.readthedocs.io/en/latest
-
 Auto-Generated API
 ==================
 
 Spacewalk generates a fully discoverable and self-documenting REST API for initiating, monitoring, and querying ZeroG jobs.
 
+Branches
+--------
 Query the base endpoint to get available branches in the endpoint hierarchy:
 
 .. code-block:: console
@@ -35,6 +13,8 @@ Query the base endpoint to get available branches in the endpoint hierarchy:
 
     []
 
+Leaves
+------
 Query a branch to get the available jobs:
 
 .. code-block:: console
@@ -56,6 +36,8 @@ Query a branch to get the available jobs:
         }
     ]
 
+Schemas
+-------
 Query an individual job to get its input parameters in JSON-Schema form:
 
 .. code-block:: console
@@ -95,6 +77,8 @@ Query an individual job to get its input parameters in JSON-Schema form:
         }
     }
 
+Run a Job
+---------
 Use an HTTP POST to initiate a job:
 
 .. code-block:: console
@@ -105,6 +89,8 @@ Use an HTTP POST to initiate a job:
         "uuid": "d5de4383-ea62-47a0-85fd-419762c457c6"
     }
 
+Monitor a Job
+-------------
 Monitor the job's progress:
 
 .. code-block:: console
@@ -116,6 +102,8 @@ Monitor the job's progress:
         "result": 200
     }
 
+Job Details
+-----------
 Get full details of the job's run:
 
 .. code-block:: console
@@ -135,6 +123,8 @@ Get full details of the job's run:
         "warnings": []
     }
 
+Job Results
+-----------
 Get the job's results:
 
 .. code-block:: console
