@@ -2,7 +2,7 @@ import pdb
 import pytest
 
 from spacewalk import structure
-import classes
+from . import classes
 
 
 def test_make_branch():
