@@ -5,7 +5,7 @@ setup(
     version=open('VERSION').read().strip(),
     author='MotiveMetrics',
     install_requires=[
-        '-e git+https://github.com/tiptapinc/zerog.git@SV2-2416-couchbase3#egg=zerog',
+        '-e git+https://github.com/tiptapinc/zerog.git@0.0.36#egg=zerog',
         'marshmallow-jsonschema',
         'pytest',
         'pytest-cov',

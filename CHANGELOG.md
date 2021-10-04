@@ -1,6 +1,6 @@
 ## v0.0.6
 * use zerog version that requires Couchbase SDK v3+
-* updgrade documentation
+* upgrade documentation
 
 ## v0.0.5
 * add /info endpoint
