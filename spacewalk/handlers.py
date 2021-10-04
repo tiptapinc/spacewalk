@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # encoding: utf-8
+# Copyright (c) 2020-2021 MotiveMetrics. All rights reserved.
 """
-Copyright (c) 2020 MotiveMetrics. All rights reserved.
-
-Tornado request handlers & endpoints to implement the "experimental" API
-
+Request handlers and endpoints for the auto-generated Spacewalk API
 """
+
 import zerog
 
 import json
@@ -27,7 +26,7 @@ RUN_JOB = "job"
 class BranchHandler(zerog.BaseHandler):
     """
     Returns a list of sub-branches or leaves for a branch. Must be
-    subclassed and subclass needs a 'get_collection' method
+    subclassed and subclass must override the :code:`get_collection` method
     """
     def get(self):
         info = self.get_collection()
@@ -96,7 +95,7 @@ class PostSchemaHandler(zerog.BaseHandler):
 
 class RunJobHandler(zerog.RunJobHandler):
     """
-    Starts a lab job for a particular endpoint.
+    Starts a zerog job for a particular endpoint.
 
     Arguments are validated by attempting to create the job.
     """
@@ -113,8 +112,8 @@ class RunJobHandler(zerog.RunJobHandler):
 
 def make_handlers(structure):
     """
-    makes a list of endpoint -> request handler tuples used by the Spacewalk
-    Tornado server
+    makes a list of endpoint -> request handler tuples for use by the
+    Spacewalk Tornado server
     """
     handlers = []
 
@@ -133,6 +132,9 @@ def make_handlers(structure):
         (
             "%s/progress/%s" % (structure.get_root_path(), UUID_PATT),
             zerog.ProgressHandler
+        ), (
+            "%s/info/%s" % (structure.get_root_path(), UUID_PATT),
+            zerog.InfoHandler
         ), (
             "%s/data/%s" % (structure.get_root_path(), UUID_PATT),
             zerog.GetDataHandler
