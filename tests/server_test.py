@@ -1,21 +1,20 @@
 import pdb
 import pytest
+import zerog
 
-from zerog.datastores.mock_datastore import MockDatastore
-from zerog.queues.mock_queue import MockQueue
-
-from spacewalk.server import Server
-import classes
+import spacewalk
+from . import classes
 
 
-def test_server_init(make_structure):
+def test_server_init(make_structure, make_datastore, make_queue):
     struct = make_structure(classes.Root, "")
-    Server(
+
+    spacewalk.Server(
         struct,
-        MockDatastore(),
-        MockQueue(),
-        MockQueue(),
+        "testService",
+        make_datastore,
+        make_queue,
+        zerog.registry.find_subclasses(classes.Root),
         []
     )
-
     assert True
