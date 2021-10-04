@@ -3,8 +3,6 @@ import pdb
 import pytest
 
 import zerog
-from zerog.datastores.mock_datastore import MockDatastore
-from zerog.queues.mock_queue import MockQueue
 
 from spacewalk import handlers
 from spacewalk import server
@@ -13,7 +11,7 @@ from . import classes
 
 
 @pytest.fixture
-def app(make_structure):
+def app(make_structure, make_datastore, make_queue):
     """
     Creates a spacewalk app with class structure from 'classes'
     """
@@ -59,9 +57,9 @@ def app(make_structure):
     )
     return server.Server(
         struct,
-        MockDatastore(),
-        MockQueue(),
-        MockQueue(),
+        "testService",
+        make_datastore,
+        make_queue,
         zerog.find_subclasses(classes.Root),
         testHandlers
     )
@@ -214,5 +212,50 @@ def test_progress_handler(app, http_client, base_url):
 
     assert response.code == 200
     progress = json.loads(response.body)
-    for key in ["completeness", "result", "events", "errors", "warnings"]:
+    for key in ["completeness", "result"]:
         assert key in progress
+
+
+@pytest.mark.gen_test
+def test_info_handler(app, http_client, base_url):
+    response = yield http_client.fetch(
+        "%s%s/%s" % (base_url, classes.JOB_THAT_RUNS_PATH, handlers.RUN_JOB),
+        method="POST",
+        body=json.dumps({})
+    )
+
+    assert response.code == 201
+    body = json.loads(response.body)
+    assert "uuid" in body
+    uuid = body['uuid']
+
+    response = yield http_client.fetch(
+        "%s%s/%s/%s" % (base_url, classes.ROOT_PATH, "info", uuid)
+    )
+
+    assert response.code == 200
+    info = json.loads(response.body)
+    for key in ["completeness", "result", "events", "warnings", "errors"]:
+        assert key in info
+
+
+@pytest.mark.gen_test
+def test_data_handler(app, http_client, base_url):
+    response = yield http_client.fetch(
+        "%s%s/%s" % (base_url, classes.JOB_THAT_RUNS_PATH, handlers.RUN_JOB),
+        method="POST",
+        body=json.dumps({})
+    )
+
+    assert response.code == 201
+    body = json.loads(response.body)
+    assert "uuid" in body
+    uuid = body['uuid']
+
+    response = yield http_client.fetch(
+        "%s%s/%s/%s" % (base_url, classes.ROOT_PATH, "data", uuid)
+    )
+
+    assert response.code == 200
+    data = json.loads(response.body)
+    assert data == {}
