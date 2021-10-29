@@ -138,6 +138,9 @@ def make_handlers(structure):
         ), (
             "%s/data/%s" % (structure.get_root_path(), UUID_PATT),
             zerog.GetDataHandler
+        ), (
+            "%s/data/%s" % (structure.get_root_path(), UUID_PATT),
+            zerog.GetDumpHandler
         )
     ]
 
