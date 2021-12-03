@@ -1,4 +1,4 @@
--e git+https://github.com/tiptapinc/zerog.git@SV2-2393-add-dump-handler#egg=zerog
+-e git+https://github.com/tiptapinc/zerog.git@0.0.39#egg=zerog
 
 marshmallow-jsonschema
 mock
