@@ -165,3 +165,36 @@ Get the job's results:
             "Buzz"
         ]
     }
+
+Get a full dump of the job (showLogs parameter inludes or excludes logs, false by default):
+
+.. code-block:: console
+
+    $ curl spacewalk:8888/examples/dump/9726b1fa-01e0-4c10-931e-55128415587d?showLogs=true
+
+    {
+        "documentType": "zerog_job",
+        "datasetName": "bids",
+        "endDate": null,
+        "createdAt": "2021-11-20T02:55:10.967790",
+        "logId": "gaql_load-dataset_9726b1fa-01e0-4c10-931e-55128415587d",
+        "startDate": null,
+        "queueKwargs": {
+            "ttr": 2592000
+        },
+        "updatedAt": "2021-11-20T02:55:25.709894",
+        "name": "Boots Report",
+        "schemaVersion": 1.0,
+        "running": false,
+        "uuid": "9726b1fa-01e0-4c10-931e-55128415587d",
+        "queueJobId": 4,
+        "customerId": "2464420064",
+        "errorCount": 0,
+        "jobType": "gaql_load-dataset",
+        "tickcount": 1.0,
+        "completeness": 1.0,
+        "resultCode": 200,
+        "cas": 1637376925711663104,
+        "tickval": 1.0,
+        "action": "load"
+}
