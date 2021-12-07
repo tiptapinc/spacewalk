@@ -1,3 +1,6 @@
+## v0.0.7
+* add /dump handler for dumping jobs
+
 ## v0.0.6
 * use zerog version that requires Couchbase SDK v3+
 * upgrade documentation
