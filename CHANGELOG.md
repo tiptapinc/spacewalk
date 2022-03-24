@@ -1,3 +1,6 @@
+## v0.0.9
+* remove zerog from requirements.txt
+
 ## v0.0.8
 * update zerog version in setup.py
 
