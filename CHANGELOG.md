@@ -1,3 +1,6 @@
+## v0.0.8
+* update zerog version in setup.py
+
 ## v0.0.7
 * add /dump handler for dumping jobs
 
