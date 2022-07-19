@@ -20,7 +20,7 @@ Documentation
 =============
 
 - ZeroG: https://zerog.readthedocs.io/en/latest/
-- Spacewalk: https://spacewalk.readthedocs.io/en/latest
+- Spacewalk: https://zerog-spacewalk.readthedocs.io/en/latest
 
 Auto-Generated API
 ==================
